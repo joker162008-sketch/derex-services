@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; form-action 'none'; base-uri 'none'">
   <meta name="referrer" content="no-referrer">
-  <title>教师 AI 工作流落地 · 幼儿园与中小学老师</title>
-  <meta name="description" content="面向幼儿园与中小学老师的 AI 工作流落地：把每天重复的写、做、整理，变成填空式流水线，产出可编辑的教案、PPT 草稿、文档和表格。">
+  <title>课件工坊 · 给一个主题，拿到一整套课件包</title>
+  <meta name="description" content="课件工坊：老师给一个主题，拿到一整套课件包——视频教学素材（主产品）+ 配套插图组 + 教案概要 + 提问卡 + 延伸活动单。">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top">教师 AI 工作流落地</a>
+      <a class="brand" href="#top">课件工坊</a>
       <nav class="nav" aria-label="主导航">
-        <a href="#workflows">六个工作流</a>
-        <a href="#demo">真实示例</a>
-        <a href="#tiers">产品</a>
+        <a href="#pack">课件包</a>
+        <a href="#sample">首个样例</a>
+        <a href="#tools">文书小工具</a>
         <a href="#contact">联系</a>
       </nav>
     </div>
@@ -24,120 +24,143 @@
 
   <main id="top">
     <section id="hero" class="hero">
-      <div class="container">
-        <p class="eyebrow">面向幼儿园与中小学老师</p>
-        <h1>教师 AI 工作流落地：把每天重复的写、做、整理，变成填空式流水线</h1>
-        <p class="lead">观察记录、教案、周计划、家长沟通、备课、出题、评语……老师只需按格式填几个空，工作流就产出可编辑的教案、PPT 草稿、文档和表格。所有产出都是草稿，由老师核对、修改后再使用。</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#demo">看一条真实示例</a>
-          <a class="btn btn-ghost" href="#tiers">了解产品</a>
+      <div class="container hero-grid">
+        <div class="hero-main">
+          <p class="eyebrow">课件工坊 · 面向幼儿园与中小学老师</p>
+          <h1>给一个主题，拿到一整套能直接上课的课件包</h1>
+          <p class="lead">老师只说一个主题（比如中班安全教育《红灯停，绿灯行》），课件工坊交付以视频教学素材为主、配齐插图、教案、提问和延伸活动的一整套课件。所有内容都是草稿，由老师核对、修改后再用于课堂。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="hero-cta" href="#sample">看首个课件样例</a>
+            <a class="btn btn-ghost" href="#contact">来信说说你要的课件主题</a>
+          </div>
         </div>
-        <p class="notice privacy-note" id="privacy-note"><strong>隐私提醒：</strong>输入前去掉真实姓名。请用化名或代号称呼孩子，不要输入真实姓名、照片、电话、身份证号、住址或园所/学校信息。本页示例全部使用化名，场景为虚构。</p>
+        <aside class="hero-aside" aria-label="一套课件包包含">
+          <p class="aside-title">一套课件包 = </p>
+          <ol class="pack-mini">
+            <li><strong>视频教学素材</strong>（主产品）</li>
+            <li>配套插图组</li>
+            <li>教案概要</li>
+            <li>提问卡</li>
+            <li>延伸活动单</li>
+          </ol>
+        </aside>
       </div>
     </section>
 
-    <section id="workflows" class="section">
+    <section id="pack" class="section">
       <div class="container">
-        <h2>六个工作流</h2>
-        <p class="section-lead">前三个已有可安装的工作流包（当前版本面向幼儿园，可导入 Dify / n8n，或按清单在扣子（Coze）里搭建）；后三个正在开发中，尚不可用。</p>
-        <ol class="workflow-grid" id="workflow-list">
-          <li class="card workflow-card" data-status="ready">
-            <span class="badge badge-ready">已有工作流包</span>
-            <h3>观察记录与成长档案</h3>
-            <p>老师的白话速记 → 按五大领域标注的规范观察记录、幼儿评语、家长沟通稿。</p>
+        <h2>一个主题，五样东西</h2>
+        <p class="section-lead">课堂上真正缺的是能放给孩子看的图和视频。课件工坊把视频放在中心，其余四样都围绕同一条分镜来做，图、问题和活动前后对得上。</p>
+        <ol class="pack-list" id="pack-list">
+          <li class="pack-item pack-main" data-item="video">
+            <span class="kicker">主产品</span>
+            <h3>视频教学素材</h3>
+            <p>按分镜制作的短视频：画面、旁白和节奏贴合年龄段，课堂上直接播放。</p>
           </li>
-          <li class="card workflow-card" data-status="ready">
-            <span class="badge badge-ready">已有工作流包</span>
-            <h3>教案与周计划</h3>
-            <p>主题 + 年龄段 → 集体活动教案（目标、材料、过程、延伸、安全提示）和配套周计划表。</p>
+          <li class="pack-item" data-item="illustrations">
+            <h3>配套插图组</h3>
+            <p>与视频同一角色、同一画风的插图，可打印、可贴墙、可做翻页讲述。</p>
           </li>
-          <li class="card workflow-card" data-status="ready">
-            <span class="badge badge-ready">已有工作流包</span>
-            <h3>家长沟通话术</h3>
-            <p>沟通场景 + 具体情况 → 正式版、亲切版两种语气的话术草稿。</p>
+          <li class="pack-item" data-item="lesson-overview">
+            <h3>教案概要</h3>
+            <p>活动目标、准备、过程和视频在哪一步播放，一页看清。</p>
           </li>
-          <li class="card workflow-card" data-status="dev">
-            <span class="badge badge-dev">开发中</span>
-            <h3>备课流水线</h3>
-            <p>计划方向：从课题出发，依次产出教案、PPT 大纲草稿和学习单，便于老师逐步修改。</p>
+          <li class="pack-item" data-item="question-cards">
+            <h3>提问卡</h3>
+            <p>围绕视频关键画面的提问，帮老师在播放前后引导孩子说一说。</p>
           </li>
-          <li class="card workflow-card" data-status="dev">
-            <span class="badge badge-dev">开发中</span>
-            <h3>出题与讲评</h3>
-            <p>计划方向：按知识点和难度生成练习/测验草稿，并整理讲评要点表格。</p>
-          </li>
-          <li class="card workflow-card" data-status="dev">
-            <span class="badge badge-dev">开发中</span>
-            <h3>评语与家校材料</h3>
-            <p>计划方向：期末评语、家长会材料、通知等家校文档的批量草稿。</p>
+          <li class="pack-item" data-item="activity-sheet">
+            <h3>延伸活动单</h3>
+            <p>区角游戏、亲子任务等课后延伸，把视频里学到的放进生活。</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <section id="demo" class="section alt">
+    <section id="sample" class="section alt">
       <div class="container">
-        <h2>真实示例：一条观察记录从速记到成稿</h2>
-        <p class="section-lead">下面的输入和三份输出原样取自已合并的教师 AI 工作流包 ai-staff-pack 中“观察记录与成长档案助手”的示例，未做任何改写。孩子的名字是化名，场景为虚构。</p>
-
-        <div class="demo-flow">
-          <div class="card demo-step" id="demo-input">
-            <p class="step-label">① 老师的白话速记（输入）</p>
-            <blockquote class="notes" id="demo-notes"></blockquote>
-            <dl class="fields" id="demo-fields"></dl>
+        <p class="eyebrow">首个样例</p>
+        <h2>中班安全教育《红灯停，绿灯行》</h2>
+        <p class="section-lead">下面是这套课件视频的真实分镜脚本，共四个镜头。主角是一只小兔子，从路口等灯、过斑马线，一直走到幼儿园门口。</p>
+        <div class="sample-layout">
+          <div class="video-soon" id="sample-video" role="note">
+            <p class="soon-badge">即将上线</p>
+            <p class="soon-title">样片视频即将上线</p>
+            <p class="soon-text">样片还在制作中，这里暂时没有视频，等上线后再更新。目前先公开分镜脚本。</p>
           </div>
-
-          <div class="card demo-step" id="demo-pipeline">
-            <p class="step-label">② 工作流步骤</p>
-            <ol class="pipeline" id="demo-steps"></ol>
-          </div>
-
-          <div class="card demo-step" id="demo-output">
-            <p class="step-label">③ 三份可编辑的输出</p>
-            <div class="tabs" role="tablist" aria-label="示例输出" id="demo-tabs"></div>
-            <div id="demo-panels"></div>
-          </div>
-        </div>
-
-        <div class="provenance" id="demo-source">
-          <h3>数据来源</h3>
-          <ul>
-            <li>工作流包：<span data-src="pack_name"></span>（<code data-src="pack_id"></code> v<span data-src="pack_version"></span>）</li>
-            <li>仓库：<code data-src="repository"></code>，提交 <code data-src="commit"></code>（<span data-src="commit_date"></span>）</li>
-            <li>示例：<code data-src="example_path"></code></li>
-            <li>本站副本：<code>data/ai-staff-pack/</code>（含 SHA-256 记录，测试会校验未被改动）</li>
-          </ul>
-          <p class="fineprint" data-src="note"></p>
-          <p class="fineprint">本页是静态网页，不调用任何模型或接口；示例输出是工作流包里的参考成稿，你自己运行时模型的输出会有差异，需要老师核对后再使用。</p>
+          <ol class="storyboard" id="storyboard">
+          <li class="shot" data-shot="1">
+            <p class="shot-no">镜头 1</p>
+            <p class="shot-scene"><span class="shot-label">画面</span>十字路口全景，小兔子站在斑马线前看红绿灯</p>
+            <p class="shot-vo"><span class="shot-label">旁白</span>「小朋友们，过马路的时候，要先看看红绿灯。」</p>
+          </li>
+          <li class="shot" data-shot="2">
+            <p class="shot-no">镜头 2</p>
+            <p class="shot-scene"><span class="shot-label">画面</span>近景，红灯亮，小兔子站在路边等待，车从面前驶过</p>
+            <p class="shot-vo"><span class="shot-label">旁白</span>「红灯亮了，停一停，站在路边等一等。」</p>
+          </li>
+          <li class="shot" data-shot="3">
+            <p class="shot-no">镜头 3</p>
+            <p class="shot-scene"><span class="shot-label">画面</span>绿灯亮，小兔子左右看后走斑马线</p>
+            <p class="shot-vo"><span class="shot-label">旁白</span>「绿灯亮了，先看左边，再看右边，没有车，走斑马线。」</p>
+          </li>
+          <li class="shot" data-shot="4">
+            <p class="shot-no">镜头 4</p>
+            <p class="shot-scene"><span class="shot-label">画面</span>小兔子到达幼儿园门口挥手</p>
+            <p class="shot-vo"><span class="shot-label">旁白</span>「安安全全过马路，我是交通小标兵！」</p>
+          </li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <section id="tiers" class="section">
+    <section id="tools" class="section">
       <div class="container">
-        <h2>三种产品形态</h2>
-        <div class="grid grid-3">
-          <article class="card tier" data-tier="trial">
-            <h3>免费试用智能体</h3>
-            <p>先用一个已有工作流（如观察记录助手）试一试：拿几条去掉真实姓名的速记，看输出是否适合你的班级。</p>
-          </article>
-          <article class="card tier" data-tier="pack">
-            <h3>教师模板包</h3>
-            <p>可导入 Dify / n8n 的工作流文件、扣子（Coze）逐节点搭建清单、提示词、知识库模板、示例和验收清单，老师自己就能装、能改。</p>
-          </article>
-          <article class="card tier" data-tier="deploy">
-            <h3>园所与学校部署 + 培训</h3>
-            <p>为幼儿园或学校在选定的平台上部署工作流（隐私要求高时可接本地模型），并给老师做上手培训和隐私规范说明。</p>
-          </article>
+        <h2>文书小工具</h2>
+        <p class="section-lead" id="tools-summary">此外还有三个文书小工具：观察记录与成长档案、教案与周计划、家长沟通话术，可导入 Dify / n8n 或按清单在扣子（Coze）里搭建，下面是其中一个示例。</p>
+        <p class="notice privacy-note" id="privacy-note"><strong>隐私提醒：</strong>输入前去掉真实姓名。请用化名或代号称呼孩子，不要输入真实姓名、照片、电话、身份证号、住址或园所/学校信息。本页示例全部使用化名，场景为虚构。</p>
+        <div id="demo" class="tool-demo">
+          <h3 class="demo-title">示例：一条观察记录从速记到成稿</h3>
+          <p class="section-lead">下面的输入和三份输出原样取自已合并的教师 AI 工作流包 ai-staff-pack 中“观察记录与成长档案助手”的示例，未做任何改写。孩子的名字是化名，场景为虚构。</p>
+
+          <div class="demo-flow">
+            <div class="card demo-step" id="demo-input">
+              <p class="step-label">① 老师的白话速记（输入）</p>
+              <blockquote class="notes" id="demo-notes"></blockquote>
+              <dl class="fields" id="demo-fields"></dl>
+            </div>
+
+            <div class="card demo-step" id="demo-pipeline">
+              <p class="step-label">② 工作流步骤</p>
+              <ol class="pipeline" id="demo-steps"></ol>
+            </div>
+
+            <div class="card demo-step" id="demo-output">
+              <p class="step-label">③ 三份可编辑的输出</p>
+              <div class="tabs" role="tablist" aria-label="示例输出" id="demo-tabs"></div>
+              <div id="demo-panels"></div>
+            </div>
+          </div>
+
+          <div class="provenance" id="demo-source">
+            <h4>数据来源</h4>
+            <ul>
+              <li>工作流包：<span data-src="pack_name"></span>（<code data-src="pack_id"></code> v<span data-src="pack_version"></span>）</li>
+              <li>仓库：<code data-src="repository"></code>，提交 <code data-src="commit"></code>（<span data-src="commit_date"></span>）</li>
+              <li>示例：<code data-src="example_path"></code></li>
+              <li>本站副本：<code>data/ai-staff-pack/</code>（含 SHA-256 记录，测试会校验未被改动）</li>
+            </ul>
+            <p class="fineprint" data-src="note"></p>
+            <p class="fineprint">本页是静态网页，不调用任何模型或接口；示例输出是工作流包里的参考成稿，你自己运行时模型的输出会有差异，需要老师核对后再使用。</p>
+          </div>
         </div>
-        <p class="fineprint">具体内容和费用通过邮件沟通确定；平台和模型本身的使用费用由平台按其规则收取。</p>
       </div>
     </section>
 
     <section id="contact" class="section alt">
       <div class="container">
         <h2>联系</h2>
-        <p class="section-lead">来信时请简单写下你是幼儿园还是中小学老师、想先解决哪件重复的事。请不要在邮件里附带孩子的真实姓名或照片。</p>
+        <p class="section-lead">来信时请写下年龄段（如中班）和想做的课件主题。请不要在邮件里附带孩子的真实姓名或照片。</p>
         <div class="card contact-card">
           <ul class="contact-list" id="contact-list">
             <li><span class="contact-label">邮箱</span><a href="mailto:kerry@muse.ai" id="contact-email">kerry@muse.ai</a></li>
@@ -150,7 +173,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>教师 AI 工作流落地 · 静态网页，不收集任何输入。示例数据来自 ai-staff-pack，全部为化名与虚构场景。</p>
+      <p>课件工坊 · 静态网页，不收集任何输入。文书小工具示例数据来自 ai-staff-pack，全部为化名与虚构场景。</p>
     </div>
   </footer>
 
