@@ -1,115 +1,76 @@
-/*
- * SAMPLE / DEMO DATA ONLY.
- * Every company, shipment number, lane and document below is fictional and
- * exists only to show how the workflows behave. Replace it with your own data
- * (see README: "Replacing the sample demos").
- */
-(function (root) {
-  var DEMO_DATA = {
-    sample: true,
-    label: "虚构示例数据",
-
-    /* ---------- Demo 1: freight quote workflow ---------- */
-    ports: [
-      { code: "SZX", name: "深圳", aliases: ["深圳", "盐田", "蛇口", "shenzhen", "yantian"] },
-      { code: "SHA", name: "上海", aliases: ["上海", "shanghai"] },
-      { code: "NGB", name: "宁波", aliases: ["宁波", "ningbo"] },
-      { code: "LAX", name: "洛杉矶", aliases: ["洛杉矶", "los angeles"] },
-      { code: "HAM", name: "汉堡", aliases: ["汉堡", "hamburg"] },
-      { code: "RTM", name: "鹿特丹", aliases: ["鹿特丹", "rotterdam"] },
-      { code: "SIN", name: "新加坡", aliases: ["新加坡", "singapore"] },
-      { code: "SYD", name: "悉尼", aliases: ["悉尼", "sydney"] }
-    ],
-    modes: {
-      sea_lcl: { name: "海运拼箱", keywords: ["拼箱", "lcl", "海运"], unit: "W/M" },
-      sea_fcl: { name: "海运整柜", keywords: ["整柜", "fcl", "40hq", "40gp", "20gp"], unit: "柜" },
-      air: { name: "空运", keywords: ["空运", "air"], unit: "kg" },
-      express: { name: "国际快递", keywords: ["快递", "express", "courier"], unit: "kg" }
+/* 自动生成，请勿手改。来源：data/ai-staff-pack/（ai-staff-pack 真实示例）。
+ * 重新生成：python scripts/sync_demo_data.py */
+window.DEMO_DATA = {
+  "source": {
+    "repository": "joker162008-sketch/ai-staff-pack",
+    "commit": "f65c11b5abbdeee18547d51af4dee158f6036f4d",
+    "commit_date": "2026-11-24T09:53:04+08:00",
+    "pack_id": "observation-record",
+    "pack_name": "观察记录与成长档案助手",
+    "pack_version": "0.1.0",
+    "example": "01-zhongban-blocks",
+    "example_path": "packs/observation-record/examples/01-zhongban-blocks/",
+    "note": "逐字节复制自 ai-staff-pack，不做任何修改。expected/ 是该包人工撰写的参考输出（见其 README），不是模型实跑结果。"
+  },
+  "input_fields": [
+    {
+      "name": "notes",
+      "label": "老师速记"
     },
-    /* Volumetric conversion used by the demo: kg per cbm. */
-    volumetric: { air: 167, express: 200, sea_lcl: 1000 },
-    /* Sample lane list: routes the demo "knows". Deliberately contains no prices. */
-    laneTable: {
-      sample: true,
-      label: "虚构示例航线表，仅用于演示流程，不含任何价格",
-      lanes: [
-        { origin: "SZX", destination: "LAX", mode: "sea_lcl", transitDays: "18-24" },
-        { origin: "SZX", destination: "LAX", mode: "air", transitDays: "3-5" },
-        { origin: "SZX", destination: "LAX", mode: "express", transitDays: "4-7" },
-        { origin: "NGB", destination: "RTM", mode: "sea_lcl", transitDays: "30-36" },
-        { origin: "SHA", destination: "HAM", mode: "sea_lcl", transitDays: "32-38" },
-        { origin: "SHA", destination: "HAM", mode: "air", transitDays: "3-6" },
-        { origin: "SHA", destination: "SIN", mode: "sea_lcl", transitDays: "7-10" }
-      ]
+    {
+      "name": "child_alias",
+      "label": "幼儿化名"
     },
-    quoteSamples: [
-      "你好，深圳到洛杉矶，海运拼箱，12箱，总重 320kg，体积 1.8 方，请报价",
-      "Hi, need air freight from Shanghai to Hamburg, 5 cartons, 85 kg, 0.9 cbm",
-      "深圳发洛杉矶快递，2箱，18公斤，0.1立方",
-      "宁波到鹿特丹整柜 40HQ 一个，麻烦报价",
-      "上海到悉尼空运 200kg，体积 1.2cbm",
-      "要发一批货到洛杉矶，大概 300 公斤"
-    ],
-
-    /* ---------- Demo 2: document QA ---------- */
-    documents: [
-      {
-        id: "doc-export",
-        title: "示例：出口报关资料清单（虚构 SOP）",
-        sections: [
-          { heading: "需要准备的资料", text: "一般出口报关需要客户提供：装箱单、商业发票、报关委托书、申报要素。品名、数量、毛净重、件数在装箱单和发票上必须一致。" },
-          { heading: "截单时间", text: "示例规则：海运拼箱在船期前 3 个工作日截单，截单后修改资料需要人工确认，可能影响原定船期。" },
-          { heading: "品名申报注意事项", text: "品名要写清楚材质和用途，不能只写“配件”“样品”等笼统描述。申报要素不全时，单证员会退回给销售补充。" }
-        ]
-      },
-      {
-        id: "doc-warehouse",
-        title: "示例：仓库收货规则（虚构）",
-        sections: [
-          { heading: "入仓时间", text: "示例仓库收货时间为周一至周六 9:00-18:00，入仓前需要提前一天预约，并提供入仓单号。" },
-          { heading: "唛头与箱标", text: "每箱外箱需贴唛头，标明入仓单号、箱号和总箱数。没有唛头的货物仓库会拒收或单独收费处理。" },
-          { heading: "带电和敏感货物", text: "带电池的产品需要提前申报，并提供 MSDS 和 UN38.3 测试报告，仓库确认后才能安排入仓。液体、粉末、磁性物品同样需要事先确认。" },
-          { heading: "超尺寸超重", text: "单箱超过 30 公斤或任一边超过 120 厘米视为超规货物，需要提前告知仓库安排叉车。" }
-        ]
-      },
-      {
-        id: "doc-fba",
-        title: "示例：FBA 头程常见问题（虚构内部 FAQ）",
-        sections: [
-          { heading: "发货前需要什么", text: "发货前请提供货件编号、箱唛文件和装箱明细。箱唛需要按平台要求打印并贴在每一箱上。" },
-          { heading: "派送预约", text: "到港清关后由目的地团队预约派送，预约成功后会在系统中更新预计送达日期。" },
-          { heading: "查询物流进度", text: "可以在客户系统中输入单号查看节点，也可以直接把单号发给客服查询。" }
-        ]
-      }
-    ],
-    docSamples: [
-      "出口报关需要哪些资料？",
-      "带电池的产品可以入仓吗？",
-      "拼箱什么时候截单？",
-      "箱唛要贴在哪里？",
-      "今天汇率是多少？"
-    ],
-
-    /* ---------- Demo 3: canned-answer chatbot ---------- */
-    shipments: [
-      { id: "SMP100001", route: "深圳 → 洛杉矶", mode: "海运拼箱", status: "已开船", detail: "示例节点：已装船离港，预计 18-24 天到港。" },
-      { id: "SMP100002", route: "上海 → 汉堡", mode: "空运", status: "清关中", detail: "示例节点：已到达目的地机场，正在清关。" },
-      { id: "SMP100003", route: "宁波 → 鹿特丹", mode: "海运拼箱", status: "已入仓", detail: "示例节点：货物已入仓，等待装柜。" }
-    ],
-    chatRules: [
-      { id: "greeting", weight: 0.5, keywords: ["你好", "您好", "在吗", "hello", "hi"], reply: "你好，这里是示例客服机器人。可以帮你：查单号、说明报价需要的信息、解答入仓和单证问题，或者转人工。" },
-      { id: "quote", keywords: ["报价", "运费", "价格", "多少钱", "询价"], reply: "报价需要：起运地、目的地、运输方式（海运/空运/快递）、件数、毛重和体积。可以在“询价报价”演示里试试自动解析。" },
-      { id: "tracking_help", keywords: ["单号", "查询", "物流", "到哪", "进度", "tracking"], reply: "请发送单号，格式类似 SMP100001。" },
-      { id: "battery", keywords: ["带电", "电池", "锂电", "battery"], reply: "带电产品需要提前申报，并提供 MSDS 和 UN38.3 测试报告（示例规则）。" },
-      { id: "documents", keywords: ["报关", "资料", "单证", "发票", "装箱单"], reply: "出口报关一般需要装箱单、商业发票、报关委托书和申报要素（示例规则）。更多细节可以在“文档问答”演示中提问。" },
-      { id: "warehouse", keywords: ["入仓", "仓库", "唛头", "预约"], reply: "示例仓库周一至周六 9:00-18:00 收货，需要提前一天预约并在每箱贴唛头。" },
-      { id: "service_pricing", weight: 2, keywords: ["搭建费", "维护费", "服务费", "你们怎么收费", "你们收费"], reply: "这是示例机器人，不代表任何真实客服。本页服务的价格：搭建费 ¥20,000–50,000（一次性），维护费 ¥2,000–5,000/月。" },
-      { id: "human", keywords: ["人工", "客服", "转人工", "真人", "human"], reply: "已为你标记转人工（演示中不会真的转接）。真实项目里会推送到企业微信 / 飞书群，并附上对话记录。" }
-    ],
-    chatFallback: "这个问题不在预设规则里。真实项目中会记录下来并转给人工处理。你可以试试：查单号 SMP100001、怎么报价、带电产品能发吗、转人工。",
-    chatSamples: ["你好", "查单号 SMP100001", "SMP100009 到哪了", "怎么报价？", "带电池的产品能发吗", "转人工", "明天会下雨吗"]
-  };
-
-  if (typeof module === "object" && module.exports) module.exports = DEMO_DATA;
-  else root.DEMO_DATA = DEMO_DATA;
-})(this);
+    {
+      "name": "age_group",
+      "label": "年龄段"
+    },
+    {
+      "name": "observe_date",
+      "label": "观察日期"
+    },
+    {
+      "name": "observe_scene",
+      "label": "观察场景"
+    }
+  ],
+  "input": {
+    "_privacy": "示例数据：幼儿姓名均为化名，场景为虚构，不含任何真实儿童信息。",
+    "notes": "今天建构区小橙子搭了个很高的塔，倒了两次，第一次哭了一下，第二次没哭，自己说底下要放大块的。后来叫旁边的小朋友帮他扶着，两个人一起数用了多少块，数到了十二。最后还给塔起名叫“彩虹塔”，跟我说上面是给小鸟住的。大概玩了二十分钟。",
+    "child_alias": "小橙子",
+    "age_group": "中班",
+    "observe_date": "2026-11-18",
+    "observe_scene": "建构区"
+  },
+  "steps": [
+    "开始",
+    "自动脱敏",
+    "规范观察记录",
+    "幼儿评语",
+    "家长沟通稿",
+    "结束"
+  ],
+  "outputs": [
+    {
+      "name": "observation_record",
+      "label": "规范观察记录",
+      "markdown": "## 基本信息\n- 幼儿：小橙子\n- 年龄段：中班\n- 观察日期：2026-11-18\n- 观察场景：建构区\n\n## 观察实录\n区域活动时间，小橙子在建构区用积木搭高塔，持续约二十分钟。塔第一次倒塌时，小橙子哭了一下；第二次倒塌时没有哭，自己说：“底下要放大块的。”随后他请旁边的同伴帮忙扶住塔身，两人一起点数所用积木，数到十二块。完成后，他给作品取名“彩虹塔”，并告诉老师：“上面是给小鸟住的。”\n\n## 领域标注\n- 【科学·科学探究】依据：塔倒塌后自己总结“底下要放大块的”，并调整搭建方法。\n- 【科学·数学认知】依据：和同伴一起点数积木，数到十二。\n- 【社会·人际交往】依据：主动请同伴帮忙扶塔，两人合作完成点数。\n\n## 分析与解读\n本次观察中，小橙子在遇到失败时情绪逐渐稳定，第二次倒塌后能把注意力放到“为什么会倒”上，并说出了自己的经验，这是初步的探究与反思。他能借助同伴的力量解决问题，合作时能一起点数。给作品命名并讲出“给小鸟住”的想法，说明他在搭建中带着自己的想象。\n\n## 支持策略\n1. 在建构区投放不同大小、形状的积木，并提供“我的搭建计划”记录卡，鼓励他先说一说怎么让塔更稳。\n2. 分享环节请小橙子介绍“彩虹塔”和“底下要放大块的”这条经验，让同伴之间互相学习。\n3. 家园共育：在家可以和孩子一起用纸杯、纸盒搭高，边搭边数一数用了几个。\n"
+    },
+    {
+      "name": "child_comment",
+      "label": "幼儿评语",
+      "markdown": "小橙子，老师看到你在建构区搭了一座高高的“彩虹塔”。塔倒了两次，第二次你没有哭，还自己想到了“底下要放大块的”，真是一个会动脑筋的小建筑师！你还请小伙伴帮忙扶着，两个人一起数出用了十二块积木。老师很喜欢你说的“上面是给小鸟住的”。下次搭建前，你愿意先把你的想法画下来，再和小伙伴一起试一试吗？\n"
+    },
+    {
+      "name": "parent_message",
+      "label": "家长沟通稿",
+      "markdown": "小橙子家长您好：\n\n想和您分享小橙子今天在建构区的一件小事。他搭了一座高塔，中途倒了两次。第二次倒的时候，他没有哭，而是自己总结出“底下要放大块的”，然后请一位小伙伴帮忙扶着，两个人一起数出用了十二块积木。最后他给作品取名“彩虹塔”，还说上面是给小鸟住的。\n\n从这件事里，我们看到小橙子遇到困难时情绪越来越稳定，愿意动脑筋想办法，也乐意和同伴合作。\n\n在家里，您可以和孩子用纸杯、纸盒一起搭高，边搭边数一数用了几个，也可以问问他“怎样才能搭得更稳”。欢迎您也和我们分享孩子在家的小发现。\n\n班级老师\n"
+    }
+  ],
+  "example_aliases": [
+    "小橙子",
+    "豆豆",
+    "小星星",
+    "小葡萄"
+  ]
+};

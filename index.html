@@ -5,177 +5,144 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; form-action 'none'; base-uri 'none'">
   <meta name="referrer" content="no-referrer">
-  <title>AI 工作流落地服务 · 小型货代与跨境卖家</title>
-  <meta name="description" content="用 Dify / n8n / Coze 为小型货代和跨境卖家搭建询价、单证问答、客服等 AI 工作流。">
+  <title>教师 AI 工作流落地 · 幼儿园与中小学老师</title>
+  <meta name="description" content="面向幼儿园与中小学老师的 AI 工作流落地：把每天重复的写、做、整理，变成填空式流水线，产出可编辑的教案、PPT 草稿、文档和表格。">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top">AI 工作流落地</a>
+      <a class="brand" href="#top">教师 AI 工作流落地</a>
       <nav class="nav" aria-label="主导航">
-        <a href="#services">服务</a>
-        <a href="#process">流程</a>
-        <a href="#pricing">价格</a>
-        <a href="#demos">演示</a>
+        <a href="#workflows">六个工作流</a>
+        <a href="#demo">真实示例</a>
+        <a href="#tiers">产品</a>
         <a href="#contact">联系</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section id="hero" class="hero">
       <div class="container">
-        <p class="eyebrow">Dify · n8n · Coze</p>
-        <h1>为小型货代和跨境卖家，落地能真正用起来的 AI 工作流</h1>
-        <p class="lead">把每天重复的询价报价、单证查询、客户咨询，整理成可维护的自动化流程。按你的业务梳理需求、搭建、上线，并持续维护。</p>
+        <p class="eyebrow">面向幼儿园与中小学老师</p>
+        <h1>教师 AI 工作流落地：把每天重复的写、做、整理，变成填空式流水线</h1>
+        <p class="lead">观察记录、教案、周计划、家长沟通、备课、出题、评语……老师只需按格式填几个空，工作流就产出可编辑的教案、PPT 草稿、文档和表格。所有产出都是草稿，由老师核对、修改后再使用。</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#demos">试用在线演示</a>
-          <a class="btn btn-ghost" href="#contact">沟通需求</a>
+          <a class="btn btn-primary" href="#demo">看一条真实示例</a>
+          <a class="btn btn-ghost" href="#tiers">了解产品</a>
         </div>
-        <p class="notice" id="sample-notice"><strong>说明：</strong>本页所有演示均在你的浏览器本地运行，不联网、不调用任何 AI 模型或 API；演示中的公司、单号、航线和文档全部是虚构的示例数据，询价演示不显示任何价格。</p>
+        <p class="notice privacy-note" id="privacy-note"><strong>隐私提醒：</strong>输入前去掉真实姓名。请用化名或代号称呼孩子，不要输入真实姓名、照片、电话、身份证号、住址或园所/学校信息。本页示例全部使用化名，场景为虚构。</p>
       </div>
     </section>
 
-    <section id="services" class="section">
+    <section id="workflows" class="section">
       <div class="container">
-        <h2>服务内容</h2>
-        <p class="section-lead">基于 Dify、n8n、Coze 等现成平台搭建，不重复造轮子，交付后你的团队能看懂、能改动。</p>
-        <div class="grid grid-4">
-          <article class="card">
-            <h3>询价 / 报价工作流</h3>
-            <p>从邮件、微信或表单中提取起运港、目的港、重量、体积，查你的费率表，生成报价草稿，交人工复核后发出。</p>
-          </article>
-          <article class="card">
-            <h3>单证与 SOP 知识库问答</h3>
-            <p>把内部 SOP、仓库规则、报关资料清单整理成知识库，同事和客户提问时给出带出处的答案。</p>
-          </article>
-          <article class="card">
-            <h3>客服 / 询盘机器人</h3>
-            <p>常见问题自动回复，单号查询对接你的系统，复杂问题按规则转人工，不让客户等。</p>
-          </article>
-          <article class="card">
-            <h3>流程集成与自动化</h3>
-            <p>用 n8n 连接邮箱、表格、企业微信 / 飞书和现有系统，减少复制粘贴和手工录入。</p>
-          </article>
-        </div>
-        <h3 class="sub">适合谁</h3>
-        <ul class="ticks">
-          <li>小型货代、物流代理团队：询价多、报价靠人工翻费率表。</li>
-          <li>跨境电商卖家：FBA 头程、单证、客服问题重复出现。</li>
-          <li>已经在用表格 / 邮件 / 企业微信，想先从一两个流程开始自动化的团队。</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="process" class="section alt">
-      <div class="container">
-        <h2>交付流程</h2>
-        <ol class="steps">
-          <li><h3>需求梳理</h3><p>一起拆解现有流程，确定先自动化哪一两个环节、需要接入哪些数据。</p></li>
-          <li><h3>原型验证</h3><p>用你的真实样例（脱敏后）搭出可试用的原型，确认效果再继续。</p></li>
-          <li><h3>搭建上线</h3><p>在 Dify / n8n / Coze 上完成正式流程、权限和人工复核环节，提供使用说明。</p></li>
-          <li><h3>持续维护</h3><p>费率、文档、规则变化时更新流程，处理异常并按需小幅迭代。</p></li>
+        <h2>六个工作流</h2>
+        <p class="section-lead">前三个已有可安装的工作流包（当前版本面向幼儿园，可导入 Dify / n8n，或按清单在扣子（Coze）里搭建）；后三个正在开发中，尚不可用。</p>
+        <ol class="workflow-grid" id="workflow-list">
+          <li class="card workflow-card" data-status="ready">
+            <span class="badge badge-ready">已有工作流包</span>
+            <h3>观察记录与成长档案</h3>
+            <p>老师的白话速记 → 按五大领域标注的规范观察记录、幼儿评语、家长沟通稿。</p>
+          </li>
+          <li class="card workflow-card" data-status="ready">
+            <span class="badge badge-ready">已有工作流包</span>
+            <h3>教案与周计划</h3>
+            <p>主题 + 年龄段 → 集体活动教案（目标、材料、过程、延伸、安全提示）和配套周计划表。</p>
+          </li>
+          <li class="card workflow-card" data-status="ready">
+            <span class="badge badge-ready">已有工作流包</span>
+            <h3>家长沟通话术</h3>
+            <p>沟通场景 + 具体情况 → 正式版、亲切版两种语气的话术草稿。</p>
+          </li>
+          <li class="card workflow-card" data-status="dev">
+            <span class="badge badge-dev">开发中</span>
+            <h3>备课流水线</h3>
+            <p>计划方向：从课题出发，依次产出教案、PPT 大纲草稿和学习单，便于老师逐步修改。</p>
+          </li>
+          <li class="card workflow-card" data-status="dev">
+            <span class="badge badge-dev">开发中</span>
+            <h3>出题与讲评</h3>
+            <p>计划方向：按知识点和难度生成练习/测验草稿，并整理讲评要点表格。</p>
+          </li>
+          <li class="card workflow-card" data-status="dev">
+            <span class="badge badge-dev">开发中</span>
+            <h3>评语与家校材料</h3>
+            <p>计划方向：期末评语、家长会材料、通知等家校文档的批量草稿。</p>
+          </li>
         </ol>
       </div>
     </section>
 
-    <section id="pricing" class="section">
+    <section id="demo" class="section alt">
       <div class="container">
-        <h2>价格</h2>
-        <div class="grid grid-2">
-          <article class="card price-card" data-price="setup">
-            <h3>搭建费（一次性）</h3>
-            <p class="price">¥20,000–50,000</p>
-            <p>根据流程数量、需要对接的系统和数据整理工作量确定，需求梳理后给出具体报价。</p>
-          </article>
-          <article class="card price-card" data-price="maintenance">
-            <h3>维护费（按月）</h3>
-            <p class="price">¥2,000–5,000/月</p>
-            <p>包含流程与知识库更新、异常处理和日常小调整，范围在上线前书面约定。</p>
-          </article>
-        </div>
-        <p class="fineprint">平台本身（Dify / n8n / Coze 及所用模型）的订阅或调用费用由平台按其规则收取，不包含在以上费用中。</p>
-      </div>
-    </section>
+        <h2>真实示例：一条观察记录从速记到成稿</h2>
+        <p class="section-lead">下面的输入和三份输出原样取自已合并的教师 AI 工作流包 ai-staff-pack 中“观察记录与成长档案助手”的示例，未做任何改写。孩子的名字是化名，场景为虚构。</p>
 
-    <section id="demos" class="section alt">
-      <div class="container">
-        <h2>在线演示</h2>
-        <p class="section-lead">三个演示都是纯前端的规则逻辑，用来展示工作流的样子。真实项目会接入你的费率表、文档和系统，并在 Dify / n8n / Coze 中运行。</p>
-        <div class="tabs" role="tablist" aria-label="演示">
-          <button class="tab is-active" role="tab" id="tab-quote" aria-selected="true" aria-controls="panel-quote" data-tab="quote">询价报价</button>
-          <button class="tab" role="tab" id="tab-docqa" aria-selected="false" aria-controls="panel-docqa" data-tab="docqa">文档问答</button>
-          <button class="tab" role="tab" id="tab-chat" aria-selected="false" aria-controls="panel-chat" data-tab="chat">客服机器人</button>
+        <div class="demo-flow">
+          <div class="card demo-step" id="demo-input">
+            <p class="step-label">① 老师的白话速记（输入）</p>
+            <blockquote class="notes" id="demo-notes"></blockquote>
+            <dl class="fields" id="demo-fields"></dl>
+          </div>
+
+          <div class="card demo-step" id="demo-pipeline">
+            <p class="step-label">② 工作流步骤</p>
+            <ol class="pipeline" id="demo-steps"></ol>
+          </div>
+
+          <div class="card demo-step" id="demo-output">
+            <p class="step-label">③ 三份可编辑的输出</p>
+            <div class="tabs" role="tablist" aria-label="示例输出" id="demo-tabs"></div>
+            <div id="demo-panels"></div>
+          </div>
         </div>
 
-        <div class="panel is-active" role="tabpanel" id="panel-quote" aria-labelledby="tab-quote">
-          <p class="sample-badge">示例数据 · 虚构航线 · 不含价格 · 本地规则计算</p>
-          <p>粘贴一段询盘文字，工作流会依次：解析字段 → 检查缺失信息 → 计算计费重量 → 匹配示例航线表 → 生成询价摘要交人工报价。演示不计算、不显示任何价格。</p>
-          <div class="sample-buttons" id="quote-samples"></div>
-          <label for="quote-input" class="label">询盘内容</label>
-          <textarea id="quote-input" rows="3"></textarea>
-          <button class="btn btn-primary" id="quote-run" type="button">运行工作流</button>
-          <div id="quote-output" class="output" aria-live="polite"></div>
-          <details class="lanes">
-            <summary>查看示例航线表（虚构，不含价格）</summary>
-            <div id="lane-table"></div>
-          </details>
-        </div>
-
-        <div class="panel" role="tabpanel" id="panel-docqa" aria-labelledby="tab-docqa" hidden>
-          <p class="sample-badge">示例文档 · 虚构内容 · 本地关键词检索</p>
-          <p>对下面三份虚构的示例文档提问。答案只来自文档原文，并标出出处；文档里没有的内容会直接说明找不到。</p>
-          <div class="sample-buttons" id="docqa-samples"></div>
-          <label for="docqa-input" class="label">你的问题</label>
-          <input id="docqa-input" type="text">
-          <button class="btn btn-primary" id="docqa-run" type="button">检索答案</button>
-          <div id="docqa-output" class="output" aria-live="polite"></div>
-          <details class="docs">
-            <summary>查看示例文档原文（虚构）</summary>
-            <div id="doc-list"></div>
-          </details>
-        </div>
-
-        <div class="panel" role="tabpanel" id="panel-chat" aria-labelledby="tab-chat" hidden>
-          <p class="sample-badge">示例对话 · 预设回复 · 关键词规则匹配</p>
-          <p>机器人按预设关键词规则回复，并显示命中的规则。示例单号：<code>SMP100001</code>、<code>SMP100002</code>、<code>SMP100003</code>。</p>
-          <div class="sample-buttons" id="chat-samples"></div>
-          <div id="chat-log" class="chat-log" aria-live="polite"></div>
-          <form id="chat-form" class="chat-form">
-            <label for="chat-input" class="visually-hidden">消息</label>
-            <input id="chat-input" type="text" placeholder="输入消息，例如：查单号 SMP100001" autocomplete="off">
-            <button class="btn btn-primary" type="submit">发送</button>
-          </form>
+        <div class="provenance" id="demo-source">
+          <h3>数据来源</h3>
+          <ul>
+            <li>工作流包：<span data-src="pack_name"></span>（<code data-src="pack_id"></code> v<span data-src="pack_version"></span>）</li>
+            <li>仓库：<code data-src="repository"></code>，提交 <code data-src="commit"></code>（<span data-src="commit_date"></span>）</li>
+            <li>示例：<code data-src="example_path"></code></li>
+            <li>本站副本：<code>data/ai-staff-pack/</code>（含 SHA-256 记录，测试会校验未被改动）</li>
+          </ul>
+          <p class="fineprint" data-src="note"></p>
+          <p class="fineprint">本页是静态网页，不调用任何模型或接口；示例输出是工作流包里的参考成稿，你自己运行时模型的输出会有差异，需要老师核对后再使用。</p>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
+    <section id="tiers" class="section">
+      <div class="container">
+        <h2>三种产品形态</h2>
+        <div class="grid grid-3">
+          <article class="card tier" data-tier="trial">
+            <h3>免费试用智能体</h3>
+            <p>先用一个已有工作流（如观察记录助手）试一试：拿几条去掉真实姓名的速记，看输出是否适合你的班级。</p>
+          </article>
+          <article class="card tier" data-tier="pack">
+            <h3>教师模板包</h3>
+            <p>可导入 Dify / n8n 的工作流文件、扣子（Coze）逐节点搭建清单、提示词、知识库模板、示例和验收清单，老师自己就能装、能改。</p>
+          </article>
+          <article class="card tier" data-tier="deploy">
+            <h3>园所与学校部署 + 培训</h3>
+            <p>为幼儿园或学校在选定的平台上部署工作流（隐私要求高时可接本地模型），并给老师做上手培训和隐私规范说明。</p>
+          </article>
+        </div>
+        <p class="fineprint">具体内容和费用通过邮件沟通确定；平台和模型本身的使用费用由平台按其规则收取。</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section alt">
       <div class="container">
         <h2>联系</h2>
-        <p class="section-lead">简单写下你的业务和想自动化的环节。下面的表单不会提交到任何服务器，只会在本地生成一段需求说明，复制后通过下方联系方式发送即可。</p>
-        <div class="grid grid-2">
-          <form id="contact-form" class="contact-form">
-            <label class="label" for="c-company">公司类型</label>
-            <select id="c-company">
-              <option value="小型货代">小型货代</option>
-              <option value="跨境电商卖家">跨境电商卖家</option>
-              <option value="其他">其他</option>
-            </select>
-            <label class="label" for="c-need">想先自动化的环节</label>
-            <textarea id="c-need" rows="3" placeholder="例如：每天几十封询价邮件，需要人工查费率表报价"></textarea>
-            <label class="label" for="c-tools">现在使用的工具</label>
-            <input id="c-tools" type="text" placeholder="例如：Excel、企业微信、邮箱">
-            <button class="btn btn-primary" type="submit">生成需求说明</button>
-            <textarea id="contact-output" rows="6" readonly aria-label="生成的需求说明"></textarea>
-            <button class="btn btn-ghost" id="contact-copy" type="button">复制</button>
-            <p id="contact-status" class="fineprint" aria-live="polite"></p>
-          </form>
-          <div class="card contact-card">
-            <h3>联系方式</h3>
-            <ul class="contact-list" id="contact-list"></ul>
-          </div>
+        <p class="section-lead">来信时请简单写下你是幼儿园还是中小学老师、想先解决哪件重复的事。请不要在邮件里附带孩子的真实姓名或照片。</p>
+        <div class="card contact-card">
+          <ul class="contact-list" id="contact-list">
+            <li><span class="contact-label">邮箱</span><a href="mailto:kerry@muse.ai" id="contact-email">kerry@muse.ai</a></li>
+            <li><span class="contact-label">微信</span><span class="placeholder" id="contact-wechat">微信号待公布</span></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -183,13 +150,12 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>AI 工作流落地服务 · 基于 Dify / n8n / Coze。页面为静态网页，所有演示本地运行，示例数据均为虚构。</p>
+      <p>教师 AI 工作流落地 · 静态网页，不收集任何输入。示例数据来自 ai-staff-pack，全部为化名与虚构场景。</p>
     </div>
   </footer>
 
-  <script src="assets/js/site-config.js"></script>
   <script src="assets/js/demo-data.js"></script>
-  <script src="assets/js/demo-core.js"></script>
+  <script src="assets/js/render.js"></script>
   <script src="assets/js/app.js"></script>
 </body>
 </html>
