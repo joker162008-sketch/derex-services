@@ -1,0 +1,40 @@
+{
+  "repository": "joker162008-sketch/ai-staff-pack",
+  "commit": "f65c11b5abbdeee18547d51af4dee158f6036f4d",
+  "commit_date": "2026-11-24T09:53:04+08:00",
+  "pack": "observation-record",
+  "example": "01-zhongban-blocks",
+  "note": "逐字节复制自 ai-staff-pack，不做任何修改。expected/ 是该包人工撰写的参考输出（见其 README），不是模型实跑结果。",
+  "files": [
+    {
+      "source_path": "packs/observation-record/pack.json",
+      "local_path": "data/ai-staff-pack/observation-record/pack.json",
+      "sha256": "5cc8705439cf10026c011c9570cdd5fdc424c22a4afe36aeefc26695c9628a80"
+    },
+    {
+      "source_path": "packs/observation-record/workflow.json",
+      "local_path": "data/ai-staff-pack/observation-record/workflow.json",
+      "sha256": "4332d28fedf77d8a32cf079c06a157a785f25d2dba3ad8f213543adc9316e47a"
+    },
+    {
+      "source_path": "packs/observation-record/examples/01-zhongban-blocks/input.json",
+      "local_path": "data/ai-staff-pack/observation-record/examples/01-zhongban-blocks/input.json",
+      "sha256": "38fbf59449ab0f46df66272c9f85824c42760012a974204a7ca345dd4715fe6c"
+    },
+    {
+      "source_path": "packs/observation-record/examples/01-zhongban-blocks/expected/observation_record.md",
+      "local_path": "data/ai-staff-pack/observation-record/examples/01-zhongban-blocks/expected/observation_record.md",
+      "sha256": "1a35c67787b613046a74c046e690287f0d647c59ccc3d5c8b9d609aa10b2918d"
+    },
+    {
+      "source_path": "packs/observation-record/examples/01-zhongban-blocks/expected/child_comment.md",
+      "local_path": "data/ai-staff-pack/observation-record/examples/01-zhongban-blocks/expected/child_comment.md",
+      "sha256": "f8cc9c4dcdd971c33c9cc7ecbecdf48961bd11b9917cf76261a3cbb9f4bcbd3d"
+    },
+    {
+      "source_path": "packs/observation-record/examples/01-zhongban-blocks/expected/parent_message.md",
+      "local_path": "data/ai-staff-pack/observation-record/examples/01-zhongban-blocks/expected/parent_message.md",
+      "sha256": "90cd0d491084558478608becf48e127ba4f2e7819ce6ab9802881a22f862af11"
+    }
+  ]
+}

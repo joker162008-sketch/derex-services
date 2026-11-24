@@ -1,0 +1,65 @@
+{
+  "schema": "ai-staff-pack/workflow@1",
+  "nodes": [
+    {
+      "id": "start",
+      "type": "start",
+      "inputs": [
+        {"name": "notes", "label": "老师速记", "type": "paragraph", "required": true, "max_length": 2000, "hint": "白话记下看到的、听到的即可；不要写真实姓名、电话、住址"},
+        {"name": "child_alias", "label": "幼儿化名", "type": "text", "required": true, "max_length": 20, "hint": "只填化名或代号，例如“小橙子”，不要填真实姓名"},
+        {"name": "age_group", "label": "年龄段", "type": "select", "required": true, "options": ["小班", "中班", "大班"]},
+        {"name": "observe_date", "label": "观察日期", "type": "text", "required": false, "max_length": 20, "hint": "例如 2026-11-20"},
+        {"name": "observe_scene", "label": "观察场景", "type": "text", "required": false, "max_length": 50, "hint": "例如 建构区、户外、进餐"}
+      ]
+    },
+    {"id": "redact", "type": "redact", "title": "自动脱敏", "fields": ["notes"]},
+    {
+      "id": "record",
+      "type": "llm",
+      "title": "规范观察记录",
+      "prompt": "prompts/01-observation-record.md",
+      "temperature": 0.3,
+      "vars": {
+        "notes": "redact.notes",
+        "child_alias": "start.child_alias",
+        "age_group": "start.age_group",
+        "observe_date": "start.observe_date",
+        "observe_scene": "start.observe_scene"
+      }
+    },
+    {
+      "id": "comment",
+      "type": "llm",
+      "title": "幼儿评语",
+      "prompt": "prompts/02-child-comment.md",
+      "temperature": 0.5,
+      "vars": {
+        "observation_record": "record.text",
+        "child_alias": "start.child_alias",
+        "age_group": "start.age_group"
+      }
+    },
+    {
+      "id": "parent",
+      "type": "llm",
+      "title": "家长沟通稿",
+      "prompt": "prompts/03-parent-message.md",
+      "temperature": 0.5,
+      "vars": {
+        "observation_record": "record.text",
+        "child_comment": "comment.text",
+        "child_alias": "start.child_alias"
+      }
+    },
+    {
+      "id": "end",
+      "type": "end",
+      "outputs": {
+        "observation_record": "record.text",
+        "child_comment": "comment.text",
+        "parent_message": "parent.text"
+      }
+    }
+  ],
+  "edges": [["start", "redact"], ["redact", "record"], ["record", "comment"], ["comment", "parent"], ["parent", "end"]]
+}
